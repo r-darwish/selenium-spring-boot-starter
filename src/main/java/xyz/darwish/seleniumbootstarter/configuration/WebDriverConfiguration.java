@@ -11,9 +11,15 @@ public class WebDriverConfiguration {
     BrowserOrigin browserOrigin;
     BrowserType browserType;
     RemoteBrowserConfiguration remote;
+    LocalBrowserConfiguration local;
 
     @Data
     public static class RemoteBrowserConfiguration {
         String url;
+    }
+
+    @Data
+    public static class LocalBrowserConfiguration {
+        Boolean installUblock;
     }
 }

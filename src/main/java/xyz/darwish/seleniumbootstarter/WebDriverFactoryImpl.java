@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 import xyz.darwish.seleniumbootstarter.configuration.WebDriverConfiguration;
 
 import java.net.URL;
+import java.nio.file.Files;
+import java.util.Objects;
 
 @Component
 @AllArgsConstructor
@@ -36,10 +38,19 @@ public class WebDriverFactoryImpl implements WebDriverFactory {
         return new RemoteWebDriver(new URL(configuration.getRemote().getUrl()), getCapabilities());
     }
 
+    @SneakyThrows
     private WebDriver getLocalDriver() {
         switch (configuration.getBrowserType()) {
             case Firefox:
-                return new FirefoxDriver((FirefoxOptions) getCapabilities());
+                var driver = new FirefoxDriver((FirefoxOptions) getCapabilities());
+                if (configuration.getLocal().getInstallUblock()) {
+                    var is = getClass().getClassLoader().getResourceAsStream("uBlock0_1.37.2.firefox.xpi");
+                    var fp = Files.createTempFile("ublock", "xpi");
+                    Files.write(fp, Objects.requireNonNull(is).readAllBytes());
+                    driver.installExtension(fp);
+                    fp.toFile().deleteOnExit();
+                }
+                return driver;
             case Chrome:
                 return new ChromeDriver((ChromeOptions) getCapabilities());
         }
