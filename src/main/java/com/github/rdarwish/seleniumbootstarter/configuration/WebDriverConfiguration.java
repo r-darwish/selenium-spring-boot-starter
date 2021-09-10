@@ -1,4 +1,4 @@
-package xyz.darwish.seleniumbootstarter.configuration;
+package com.github.rdarwish.seleniumbootstarter.configuration;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

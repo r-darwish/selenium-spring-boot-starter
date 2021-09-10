@@ -1,5 +1,6 @@
-package xyz.darwish.seleniumbootstarter;
+package com.github.rdarwish.seleniumbootstarter;
 
+import com.github.rdarwish.seleniumbootstarter.configuration.WebDriverConfiguration;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
@@ -11,7 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.stereotype.Component;
-import xyz.darwish.seleniumbootstarter.configuration.WebDriverConfiguration;
 
 import java.net.URL;
 import java.nio.file.Files;

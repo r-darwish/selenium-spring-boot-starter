@@ -1,4 +1,4 @@
-package xyz.darwish.seleniumbootstarter;
+package com.github.rdarwish.seleniumbootstarter;
 
 import org.openqa.selenium.WebDriver;
 import org.springframework.context.annotation.Bean;
