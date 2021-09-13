@@ -41,6 +41,11 @@
             <version>22.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-edge-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
     </dependencies>
 
     <properties>
